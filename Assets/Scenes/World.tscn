@@ -1,0 +1,366 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/StaticAssets/Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/StaticAssets/Prefabs/Protection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/Blocker.gd" type="Script" id=3]
+[ext_resource path="res://Assets/StaticAssets/Prefabs/Alien.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/StaticAssets/Prefabs/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/StaticAssets/Prefabs/Alien2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/StaticAssets/Prefabs/Alien3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scripts/Level.gd" type="Script" id=8]
+[ext_resource path="res://Assets/StaticAssets/Sounds/fastinvader1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/StaticAssets/Sounds/fastinvader3.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/StaticAssets/Sounds/fastinvader2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/StaticAssets/Sounds/fastinvader4.wav" type="AudioStream" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 126.246 )
+
+[node name="Level" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.105882, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 57.246, 193.203 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls" groups=[
+"Wall",
+]]
+collision_layer = 1024
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall" groups=[
+"Wall",
+]]
+position = Vector2( -5, 114.491 )
+shape = SubResource( 1 )
+
+[node name="RightWall" type="StaticBody2D" parent="Walls" groups=[
+"Wall",
+]]
+position = Vector2( 256, 0 )
+collision_layer = 1024
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall" groups=[
+"Wall",
+]]
+position = Vector2( 5, 114.491 )
+shape = SubResource( 1 )
+
+[node name="Blockers" type="Node" parent="."]
+
+[node name="Blocker" type="Node2D" parent="Blockers"]
+position = Vector2( 55.795, 153 )
+script = ExtResource( 3 )
+
+[node name="Protection" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 0.0835218 )
+
+[node name="Protection10" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 4.20917 )
+
+[node name="Protection11" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -10.5521, 4.20917 )
+
+[node name="Protection2" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 0.0835218 )
+
+[node name="Protection9" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 4.20917 )
+
+[node name="Protection6" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, -4.0731 )
+
+[node name="Protection3" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 0.0835218 )
+
+[node name="Protection8" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 4.20917 )
+
+[node name="Protection4" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 0.0835218 )
+
+[node name="Protection7" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 4.20917 )
+
+[node name="Protection12" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 10.6248, 4.20917 )
+
+[node name="Protection5" parent="Blockers/Blocker" instance=ExtResource( 2 )]
+position = Vector2( 2.14096, -4.02048 )
+
+[node name="Blocker2" type="Node2D" parent="Blockers"]
+position = Vector2( 109.022, 153 )
+script = ExtResource( 3 )
+
+[node name="Protection" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 0.0835218 )
+
+[node name="Protection10" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 4.20917 )
+
+[node name="Protection11" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -10.5521, 4.20917 )
+
+[node name="Protection2" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 0.0835218 )
+
+[node name="Protection9" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 4.20917 )
+
+[node name="Protection6" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, -4.0731 )
+
+[node name="Protection3" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 0.0835218 )
+
+[node name="Protection8" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 4.20917 )
+
+[node name="Protection4" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 0.0835218 )
+
+[node name="Protection7" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 4.20917 )
+
+[node name="Protection12" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 10.6248, 4.20917 )
+
+[node name="Protection5" parent="Blockers/Blocker2" instance=ExtResource( 2 )]
+position = Vector2( 2.14096, -4.02048 )
+
+[node name="Blocker3" type="Node2D" parent="Blockers"]
+position = Vector2( 160.994, 153 )
+script = ExtResource( 3 )
+
+[node name="Protection" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 0.0835218 )
+
+[node name="Protection10" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 4.20917 )
+
+[node name="Protection11" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -10.5521, 4.20917 )
+
+[node name="Protection2" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 0.0835218 )
+
+[node name="Protection9" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 4.20917 )
+
+[node name="Protection6" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, -4.0731 )
+
+[node name="Protection3" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 0.0835218 )
+
+[node name="Protection8" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 4.20917 )
+
+[node name="Protection4" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 0.0835218 )
+
+[node name="Protection7" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 4.20917 )
+
+[node name="Protection12" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 10.6248, 4.20917 )
+
+[node name="Protection5" parent="Blockers/Blocker3" instance=ExtResource( 2 )]
+position = Vector2( 2.14096, -4.02048 )
+
+[node name="Blocker4" type="Node2D" parent="Blockers"]
+position = Vector2( 216.856, 153 )
+script = ExtResource( 3 )
+
+[node name="Protection" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 0.0835218 )
+
+[node name="Protection10" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -6.34766, 4.20917 )
+
+[node name="Protection11" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -10.5521, 4.20917 )
+
+[node name="Protection2" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 0.0835218 )
+
+[node name="Protection9" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, 4.20917 )
+
+[node name="Protection6" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( -2.08581, -4.0731 )
+
+[node name="Protection3" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 0.0835218 )
+
+[node name="Protection8" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 2.1585, 4.20917 )
+
+[node name="Protection4" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 0.0835218 )
+
+[node name="Protection7" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 6.36773, 4.20917 )
+
+[node name="Protection12" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 10.6248, 4.20917 )
+
+[node name="Protection5" parent="Blockers/Blocker4" instance=ExtResource( 2 )]
+position = Vector2( 2.14096, -4.02048 )
+
+[node name="Aliens" type="Node" parent="."]
+
+[node name="Alien" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 30.9117, 46.42 )
+
+[node name="Alien2" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 47.6176, 46.5414 )
+
+[node name="Alien3" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 64.8814, 59.0596 )
+
+[node name="Alien4" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 102.537, 58.8106 )
+
+[node name="Alien26" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 119.881, 58.8106 )
+
+[node name="Alien28" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 137.461, 58.8106 )
+
+[node name="Alien30" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 156.202, 58.8106 )
+
+[node name="Alien5" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 82.5464, 58.833 )
+
+[node name="Alien6" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 31.1564, 59.6256 )
+
+[node name="Alien7" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 47.3907, 59.3315 )
+
+[node name="Alien8" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 65.0109, 46.8237 )
+
+[node name="Alien9" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 82.2615, 46.8122 )
+
+[node name="Alien10" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 102.334, 46.8165 )
+
+[node name="Alien27" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 119.442, 46.8165 )
+
+[node name="Alien29" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 137.021, 46.8165 )
+
+[node name="Alien31" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 155.841, 46.8165 )
+
+[node name="Alien11" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 30.9691, 34.3754 )
+
+[node name="Alien16" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 30.8512, 20.0888 )
+
+[node name="Alien17" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 47.7361, 20.0888 )
+
+[node name="Alien18" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 65.0983, 20.0888 )
+
+[node name="Alien19" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 82.1628, 20.0888 )
+
+[node name="Alien20" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 101.906, 20.0888 )
+
+[node name="Alien35" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 119.624, 20.0888 )
+
+[node name="Alien36" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 137.263, 20.0888 )
+
+[node name="Alien37" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 155.925, 20.0888 )
+
+[node name="Alien12" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 47.7701, 34.3754 )
+
+[node name="Alien13" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 64.9421, 34.3754 )
+
+[node name="Alien14" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 82.2524, 34.3754 )
+
+[node name="Alien15" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 102.291, 34.3754 )
+
+[node name="Alien32" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 119.537, 34.3754 )
+
+[node name="Alien33" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 137.097, 34.3754 )
+
+[node name="Alien34" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 155.917, 34.3754 )
+
+[node name="Alien21" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 30.9103, 8.24572 )
+
+[node name="Alien22" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 47.973, 8.24572 )
+
+[node name="Alien23" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 65.2908, 8.24572 )
+
+[node name="Alien24" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 82.1627, 8.24572 )
+
+[node name="Alien25" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 101.933, 8.24572 )
+
+[node name="Alien38" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 119.808, 8.24572 )
+
+[node name="Alien39" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 136.975, 8.24572 )
+
+[node name="Alien40" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 155.874, 8.24572 )
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
+
+[node name="UFOTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="Invader1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Invader2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Invader3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Invader4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[connection signal="timeout" from="UFOTimer" to="." method="_on_UFOTimer_timeout"]
